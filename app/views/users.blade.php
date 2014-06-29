@@ -1,5 +1,14 @@
 @extends('layout')
 
 @section('content')
-    Users!
+    List Users!
+
+    @foreach($users as $user)
+    	<p>{{$user->name}}</p>
+    	<p>{{$user->email}}</p>
+    @endforeach   
+    
+    <hr>
+
+
 @stop
