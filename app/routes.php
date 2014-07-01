@@ -30,9 +30,7 @@ Route::get('signup',function(){
 });
 
 //create account, insert db...
-/*
-Route::get('createacc',function(){
 
-
+Route::post('createacc',function(){	
+	return View::make('hello');
 });
-*/
