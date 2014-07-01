@@ -17,8 +17,22 @@ Route::get('/', function()
 });
 
 
+// create table , select data...
 Route::get('users', function()
 {
 	$users = User::all();
 	return View::make('users')->with('users', $users);
 });
+
+//registration, blade form.
+Route::get('signup',function(){
+	return View::make('signup');
+});
+
+//create account, insert db...
+/*
+Route::get('createacc',function(){
+
+
+});
+*/

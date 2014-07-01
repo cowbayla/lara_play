@@ -49,7 +49,11 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 App::error(function(Exception $exception, $code)
 {
 	Log::error($exception);
+	//return '阿勒～ 錯了勒? 快去看看log!';
 });
+
+
+
 
 /*
 |--------------------------------------------------------------------------

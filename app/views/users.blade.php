@@ -8,7 +8,10 @@
     	<p>{{$user->email}}</p>
     @endforeach   
     
-    <hr>
+    <hr/>
+    member registration workshop <br/>
+    <a href="./signup"/>Sign Up</a>
+    <hr/>
 
 
 @stop
