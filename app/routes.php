@@ -24,13 +24,36 @@ Route::get('users', function()
 	return View::make('users')->with('users', $users);
 });
 
-//registration, blade form.
+//registration, blade form
 Route::get('signup',function(){
 	return View::make('signup');
 });
 
-//create account, insert db...
+//create account,validation ,insert db...
+Route::post('signup',function(){	
+	//print_r($_POST);	<-old way
+	//print_r(Input::all());
+	
+	//validation start... 
+	//1 .remember to add table schema field for password.
+	//2 . move them to a model
+	$rules = array(
+		'name' 			=> array('required', 'unique:users,name'),
+		'email'			=> array('required','email','unique:users,email'),
+		'password'		=> array('required','min:7'),
+		're_password' 	=> array('required','same:password')
+	);
 
-Route::post('createacc',function(){	
+	$validation = Validator::make(Input::all(),$rules);	
+
+	if ($validation->fails())
+	{
+        // Validation has failed.        
+        print_r($validation->messages());        
+        //return Redirect::to('signup')->with_input()->with_errors($validation);
+    }
+
+    // Validation has succeeded. Create new user.
+	
 	return View::make('hello');
 });
