@@ -49,8 +49,12 @@ Route::post('signup',function(){
 	if ($validation->fails())
 	{
         // Validation has failed.        
-        print_r($validation->messages());        
-        //return Redirect::to('signup')->with_input()->with_errors($validation);
+        //print_r($validation->messages());  
+        return Redirect::to('signup')->withInput()->withErrors($validation);
+    }else{
+
+
+
     }
 
     // Validation has succeeded. Create new user.
